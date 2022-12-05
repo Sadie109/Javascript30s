@@ -38,12 +38,24 @@ console.error('This is wrong!');
 
 
     // Testing
+    console.assert(1 === 2, 'that is wrong!');
 
     // clearing
+console.clear();
 
     // Viewing DOM Elements
+console.log(dogs);
+console.dir(dogs);
 
     // Grouping together
+
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
 
