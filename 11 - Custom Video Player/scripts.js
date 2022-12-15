@@ -17,5 +17,25 @@ function togglePlay() {
   }
 }
 
+function updateButton() {
+  const icon = this.paused ? "►" : "❚ ❚";
+  toggle.textContent = icon;
+}
+
+function skip() {
+console.log(this.dataset);
+video.currentTime += parseFloat(this.dataset.skip)
+}
+
+
+function handleRangeUpdate() {
+  console.log(this.value);
+}
+
 video.addEventListener("click", togglePlay);
+video.addEventListener("play", updateButton);
+video.addEventListener("pause", updateButton);
+
 toggle.addEventListener("click", togglePlay);
+skipButtons.forEach(button => button.addEventListener('click', skip))
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
